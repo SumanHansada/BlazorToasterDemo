@@ -1,0 +1,37 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-CD to GitHub Pages
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy-to-github-pages:
+    #use ubuntu-latest image to run steps on
+    runs-on: ubuntu-latest
+    steps:
+    # uses GitHub's checkout action to checkout code from the main branch
+    - uses: actions/checkout@v2
+    
+    # sets up .NET SDK Core SDK
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@1.8.2
+      with:
+        dotnet-version: '6.x'
+    
+    # install .NET workload wasm-tools
+    - name: Install .NET workload wasm-tools
+      run: dotnet workload install wasm-tools
+      
+    # publishes Blazor project to the release-folder
+    - name: Publish .NET Core Project
+      run: dotnet publish BlazorToasterDemo.csproj --configuration Release -o release --nologo
