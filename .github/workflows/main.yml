@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI-CD to GitHub Pages
+name: Deploy to GitHub Pages
 
 # Controls when the workflow will run
 on:
@@ -36,3 +36,12 @@ jobs:
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
       run: dotnet publish BlazorToasterDemo.csproj --configuration Release -o release --nologo
+      
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: release/wwwroot
+
+    
