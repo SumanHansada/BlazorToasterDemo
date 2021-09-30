@@ -1,8 +1,40 @@
-﻿@page "/"
+﻿@using BlazorToasterDemo.Shared;
+@page "/"
 
 <PageTitle>Blazor Toaster</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-Today is @DateTime.Now.DayOfWeek
+<div class="app">
+    <div class="app-header">
+        <p>Blazor Toast Component</p>
+        <p>Built with C# and .Net! No JavaScript Used! 😍</p>
+        <div class="toast-buttons">
+            @foreach (var button in buttons)
+            {
+                <button type="button"
+                class="@((position == "Select Position") ? $"btn {button.ClassName} btn-disable" : $"btn {button.ClassName}")"
+                @onclick="@(e => ShowToast(button.Type))">
+                    @button.Label
+                </button>
+            }
+        </div>
+        <div class="select">
+            <input id="auto-dismiss" type="checkbox" name="auto-dismiss" value="@autoDismiss.ToString()"
+                @onchange="@AutoDismissToggle" />
+            <label for="auto-dismiss">Auto Dismiss</label>
+        </div>
+        <div class="select">
+            <input class="@((!autoDismiss) ? "disabled" : "")" type="text" name="auto-dismiss-time"
+                placeholder="Dismiss time Ex: 3000" autoComplete="false" @onchange="SetAutoDismissTime" />
+        </div>
+        <div class="select">
+            <select name="position" title="position" @onchange="@SelectPosition" class="position-select">
+                <option value="" selected disabled>Select Position</option>
+                <option value="top-right">Top Right</option>
+                <option value="top-left">Top Left</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="bottom-right">Bottom Right</option>
+            </select>
+        </div>
+    </div>
+    <Toaster @bind-toasts="@toasts" position="@position" autoDismiss="@autoDismiss" autoDismissTime="@autoDismissTime" />
+</div>

@@ -1,0 +1,51 @@
+@using BlazorToasterDemo.Models
+
+<div class="@($"notification-container {position}")">
+    @if (toasts != null && toasts.Count > 0)
+    {
+        @foreach (var toast in toasts)
+        {
+            <div class="@($"notification toast show {position}")" style="@($"background-color: {toast.BackgroundColor}")">
+                <button @onclick="() => DeleteToast(toast.Id)">X</button>
+                <div class="notification-image">
+                    <img src=@toast.Icon alt="" />
+                </div>
+                <div>
+                    <p class="notification-title">@toast.Title</p>
+                    <p class="notification-message">@toast.Description</p>
+                </div>
+            </div>
+            @if (autoDismiss == true)
+            {
+                DeleteToastAsync(toast.Id);
+            }
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Toast> toasts {get; set;}
+    [Parameter]
+    public string position {get; set;}
+    [Parameter]
+    public bool autoDismiss {get; set;}
+    [Parameter]
+    public int autoDismissTime { get; set;}
+    [Parameter]  
+    public EventCallback<List<Toast>> toastsChanged { get; set;}
+        
+    protected async void DeleteToast(int id)
+    {
+        toasts = toasts.Where(toast => toast.Id != id).ToList();
+        await toastsChanged.InvokeAsync(toasts);
+    }
+
+    protected async void DeleteToastAsync(int id)
+    {
+        await Task.Delay(autoDismissTime);
+        toasts = toasts.Where(toast => toast.Id != id).ToList();
+        await toastsChanged.InvokeAsync(toasts);
+        this.StateHasChanged();
+    }
+}
