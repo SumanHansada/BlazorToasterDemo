@@ -12,8 +12,8 @@ namespace BlazorToasterDemo.Pages
 
         protected IEnumerable<ToastButton> buttons = new[] {
             new ToastButton { Id = 1, Type = "success", ClassName = "success", Label = "Success"},
-            new ToastButton { Id = 2, Type = "danger", ClassName = "danger", Label = "Info"},
-            new ToastButton { Id = 3, Type = "info", ClassName = "info", Label = "Danger"},
+            new ToastButton { Id = 2, Type = "danger", ClassName = "danger", Label = "Danger"},
+            new ToastButton { Id = 3, Type = "info", ClassName = "info", Label = "Info"},
             new ToastButton { Id = 4, Type = "warning", ClassName = "warning", Label = "Warning"},
         };
 
