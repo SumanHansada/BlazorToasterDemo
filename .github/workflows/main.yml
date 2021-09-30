@@ -24,7 +24,7 @@ jobs:
     
     # sets up .NET SDK Core SDK
     - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@1.8.2
+      uses: actions/setup-dotnet@v1.8.2
       with:
         dotnet-version: '6.x'
     
