@@ -20,10 +20,10 @@ namespace BlazorToasterDemo.Pages
         public string position = "Select Position";
         public bool autoDismiss = false;
         public int autoDismissTime = 0;
-        protected string checkIcon = "/assets/check.svg";
-        protected string errorIcon = "/assets/error.svg";
-        protected string infoIcon = "/assets/info.svg";
-        protected string warningIcon = "/assets/warning.svg";
+        protected string checkIcon = "assets/check.svg";
+        protected string errorIcon = "assets/error.svg";
+        protected string infoIcon = "assets/info.svg";
+        protected string warningIcon = "assets/warning.svg";
 
         protected void AutoDismissToggle()
         {
