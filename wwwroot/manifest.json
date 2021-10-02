@@ -1,6 +1,6 @@
 {
-  "name": "BlazorToasterDemo",
-  "short_name": "BlazorToasterDemo",
+  "name": "Blazor Toaster Demo",
+  "short_name": "Blazor Toaster Demo",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

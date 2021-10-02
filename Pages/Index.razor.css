@@ -58,9 +58,21 @@ option {
   color: #fff;
 }
 
+.success:hover {
+  color: #000;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
 .danger {
   background-color: #d50000;
   color: #fff;
+}
+
+.danger:hover {
+  color: #000;
+  background-color: #c82333;
+  border-color: #bd2130;
 }
 
 .info {
@@ -68,7 +80,19 @@ option {
   color: #000;
 }
 
+.info:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
 .warning {
   background-color: #f4d03f;
   color: #000;
+}
+
+.warning:hover {
+  color: #fff;
+  background-color: #e0a800;
+  border-color: #d39e00;
 }
