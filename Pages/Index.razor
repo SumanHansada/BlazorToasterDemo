@@ -5,7 +5,7 @@
 
 <div class="app">
     <div class="app-header">
-        <p>Blazor Toast Component</p>
+        <p>Blazor Toaster Component</p>
         <p>Built with C# and .Net! No JavaScript Used!</p>
         <div class="toast-buttons">
             @foreach (var button in buttons)
@@ -37,10 +37,16 @@
         </div>
         <br />
         <p>
-          To checkout the Toaster built with React 
-          <a href="https://sumanhansada.github.io/ReactToasterDemo/">
-            Click Here!
-          </a>
+            To Checkout the Toaster built with React 
+            <a href="https://sumanhansada.github.io/ReactToasterDemo/">
+                Click Here!
+            </a>
+        </p>
+        <p>
+            GitHub Link - 
+            <a href="https://github.com/SumanHansada/BlazorToasterDemo">
+                Blazor Toaster Demo
+            </a>
         </p>
     </div>
     <Toaster @bind-toasts="@toasts" position="@position" autoDismiss="@autoDismiss" autoDismissTime="@autoDismissTime" />
