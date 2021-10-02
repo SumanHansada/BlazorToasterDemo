@@ -12,6 +12,10 @@
   color: white;
 }
 
+.app-header a {
+  color: #91bcfd;
+}
+
 .app-body {
   margin-top: -300px;
   width: 100%;
