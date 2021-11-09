@@ -1,4 +1,6 @@
 @using BlazorToasterDemo.Models
+@using BlazorToasterDemo.Constants
+@using BlazorToasterDemo.Extensions
 
 <div class="@($"notification-container {position}")">
     @if (toasts != null && toasts.Count > 0)
@@ -25,16 +27,57 @@
 
 @code {
     [Parameter]
-    public List<Toast> toasts {get; set;}
+    public string position { get; set; }
     [Parameter]
-    public string position {get; set;}
+    public bool autoDismiss { get; set; }
     [Parameter]
-    public bool autoDismiss {get; set;}
+    public int autoDismissTime { get; set; }
     [Parameter]
-    public int autoDismissTime { get; set;}
-    [Parameter]  
-    public EventCallback<List<Toast>> toastsChanged { get; set;}
-        
+    public EventCallback<List<Toast>> toastsChanged { get; set; }
+
+    private List<Toast> toasts { get; set; }
+
+    public Toaster()
+    {
+        toasts = new List<Toast>();
+    }
+
+    public void AddToast(string type, string description)
+    {
+        var rand = new Random();
+        var id = rand.Next(0, 1000);
+        Console.WriteLine("New Toast id is - " + id);
+        var tempToast = new Toast();
+        tempToast.Id = id;
+        tempToast.Title = type.ToTitleCase();
+        tempToast.Description = description;
+
+        switch (type)
+        {
+            case "success":
+                tempToast.BackgroundColor = ToasterContants.greenBackground;
+                tempToast.Icon = ToasterContants.checkIcon;
+                break;
+            case "danger":
+                tempToast.BackgroundColor = ToasterContants.redBackground;
+                tempToast.Icon = ToasterContants.errorIcon;
+                break;
+            case "info":
+                tempToast.BackgroundColor = ToasterContants.blueBackground;
+                tempToast.Icon = ToasterContants.infoIcon;
+                break;
+            case "warning":
+                tempToast.BackgroundColor = ToasterContants.yellowBackground;
+                tempToast.Icon = ToasterContants.warningIcon;
+                break;
+            default:
+                break;
+        }
+
+        toasts.Add(tempToast);
+        this.StateHasChanged();
+    }
+
     protected async void DeleteToast(int id)
     {
         toasts = toasts.Where(toast => toast.Id != id).ToList();
@@ -44,8 +87,13 @@
     protected async void DeleteToastAsync(int id)
     {
         await Task.Delay(autoDismissTime);
-        toasts = toasts.Where(toast => toast.Id != id).ToList();
-        await toastsChanged.InvokeAsync(toasts);
+        DeleteToast(id);
+        this.StateHasChanged();
+    }
+
+    public void ClearToasts()
+    {
+        toasts.Clear();
         this.StateHasChanged();
     }
 }

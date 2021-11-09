@@ -6,5 +6,6 @@ namespace BlazorToasterDemo.Models
         public string Type { get; set; }
         public string ClassName { get; set; }
         public string Label { get; set; }
+        public string Description { get; set; }
     }
 }

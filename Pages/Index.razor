@@ -10,9 +10,8 @@
         <div class="toast-buttons">
             @foreach (var button in buttons)
             {
-                <button type="button"
-                class="@((position == "Select Position") ? $"btn {button.ClassName} btn-disable" : $"btn {button.ClassName}")"
-                @onclick="@(e => ShowToast(button.Type))">
+                <button type="button" class="@((position == "Select Position") ? $"btn {button.ClassName} btn-disable" : $"btn {button.ClassName}")"
+                @onclick="@(e => ShowToast(button.Type, button.Description))">
                     @button.Label
                 </button>
             }
@@ -49,5 +48,5 @@
             </a>
         </p>
     </div>
-    <Toaster @bind-toasts="@toasts" position="@position" autoDismiss="@autoDismiss" autoDismissTime="@autoDismissTime" />
+    <Toaster @ref="toaster" position="@position" autoDismiss="@autoDismiss" autoDismissTime="@autoDismissTime" />
 </div>
