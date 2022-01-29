@@ -55,16 +55,31 @@ jobs:
           oldHash=$(echo "$asset" | jq '.hash')
           #remove leading and trailing quotes
           oldHash="${oldHash:1:-1}"
-          path=$(echo "$asset" | jq '.url')
+          oldPath=$(echo "$asset" | jq '.url')
           #remove leading and trailing quotes
-          path="${path:1:-1}"
-          newHash="sha256-$(openssl dgst -sha256 -binary $path | openssl base64 -A)"
+          oldPath="${oldPath:1:-1}"
+          newHash="sha256-$(openssl dgst -sha256 -binary $oldPath | openssl base64 -A)"
+          newPath=$(echo "$oldPath" | sed 's;\.dll;.dll.br;g')
+          
+          if [ $oldPath != $newPath ]; then
+            # escape slashes for oldPath and newPath
+            oldPath=$(echo "$oldPath" | sed 's;/;\\/;g')
+            newPath=$(echo "$newPath" | sed 's;/;\\/;g')
+            # escape slashes second time for oldPath and newPath
+            oldPath=$(echo "$oldPath" | sed 's;/;\\/;g')
+            newPath=$(echo "$newPath" | sed 's;/;\\/;g')
+            # echo oldPath
+            echo "oldPath: " $oldPath
+            # echo newPath
+            echo "newPath: " $newPath
+            jsFile=$(echo -n "$jsFile" | sed "s;$oldUrl;$newUrl;g")
+          fi
           
           if [ $oldHash != $newHash ]; then
             # escape slashes for json
             oldHash=$(echo "$oldHash" | sed 's;/;\\/;g')
             newHash=$(echo "$newHash" | sed 's;/;\\/;g')
-            echo "Updating hash for $path from $oldHash to $newHash"
+            echo "Updating hash for $oldPath from $oldHash to $newHash"
             # escape slashes second time for sed
             oldHash=$(echo "$oldHash" | sed 's;/;\\/;g')
             jsFile=$(echo -n "$jsFile" | sed "s;$oldHash;$newHash;g")
