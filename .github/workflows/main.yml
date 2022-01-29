@@ -59,7 +59,7 @@ jobs:
           #remove leading and trailing quotes
           oldPath="${oldPath:1:-1}"
           newHash="sha256-$(openssl dgst -sha256 -binary $oldPath | openssl base64 -A)"
-          newPath=$(echo "$oldPath" | sed 's;.dll;.dll.br;g')
+          newPath=$(echo "$oldPath" | sed 's/\.dll$/.dll.br/g')
           
           if [ $oldPath != $newPath ]; then
             # escape slashes for oldPath and newPath
