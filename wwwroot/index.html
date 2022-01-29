@@ -29,11 +29,7 @@
       An unhandled error has occurred.
       <a href="/" class="reload">Reload</a>
     </div>
-    <script
-      src="_framework/blazor.webassembly.js"
-      defer
-      autostart="false"
-    ></script>
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
     <script type="module">
       import { BrotliDecode } from "./decode.min.js";
       Blazor.start({
@@ -66,7 +62,7 @@
       });
     </script>
     <script>
-      navigator.serviceWorker.register("service-worker.js");
+      navigator.serviceWorker.register("service-worker.published.js");
     </script>
   </body>
 </html>
