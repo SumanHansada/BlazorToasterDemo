@@ -1,0 +1,320 @@
+/* /Pages/Index.razor.rz.scp.css */
+.app[b-abpmirz3av] {
+  text-align: center;
+}
+
+.app-header[b-abpmirz3av] {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.app-header a[b-abpmirz3av] {
+  color: #91bcfd;
+}
+
+.app-body[b-abpmirz3av] {
+  margin-top: -300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-buttons[b-abpmirz3av] {
+  display: flex;
+}
+
+.toast-buttons button[b-abpmirz3av] {
+  font-size: 16px;
+  width: 100px;
+  height: 50px;
+  margin: 0 10px;
+  border: none;
+  outline: none;
+}
+
+.select[b-abpmirz3av] {
+  display: inline;
+  width: 30%;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.position-select[b-abpmirz3av] {
+  background-color: inherit;
+  color: #fff;
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+}
+
+option[b-abpmirz3av] {
+  color: black;
+}
+
+.success[b-abpmirz3av] {
+  background-color: #008000;
+  color: #fff;
+}
+
+.success:hover[b-abpmirz3av] {
+  color: #000;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.danger[b-abpmirz3av] {
+  background-color: #d50000;
+  color: #fff;
+}
+
+.danger:hover[b-abpmirz3av] {
+  color: #000;
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.info[b-abpmirz3av] {
+  background-color: #8cd2e7;
+  color: #000;
+}
+
+.info:hover[b-abpmirz3av] {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.warning[b-abpmirz3av] {
+  background-color: #f4d03f;
+  color: #000;
+}
+
+.warning:hover[b-abpmirz3av] {
+  color: #fff;
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+/* /Shared/MainLayout.razor.rz.scp.css */
+.page[b-ae5zm3xdsz] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-ae5zm3xdsz] {
+    flex: 1;
+}
+
+.sidebar[b-ae5zm3xdsz] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-ae5zm3xdsz] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-ae5zm3xdsz]  a, .top-row[b-ae5zm3xdsz]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-ae5zm3xdsz]  a:hover, .top-row[b-ae5zm3xdsz]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-ae5zm3xdsz]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-ae5zm3xdsz] {
+        display: none;
+    }
+
+    .top-row.auth[b-ae5zm3xdsz] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-ae5zm3xdsz]  a, .top-row[b-ae5zm3xdsz]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-ae5zm3xdsz] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-ae5zm3xdsz] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-ae5zm3xdsz] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-ae5zm3xdsz]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-ae5zm3xdsz], article[b-ae5zm3xdsz] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Shared/Toaster.razor.rz.scp.css */
+.notification-container[b-wwhm3mghbz] {
+  font-size: 14px;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999999;
+}
+
+.top-right[b-wwhm3mghbz] {
+  top: 12px;
+  right: 12px;
+  transition: transform 0.6s ease-in-out;
+  animation: toast-in-right-b-wwhm3mghbz 0.7s;
+}
+
+.bottom-right[b-wwhm3mghbz] {
+  bottom: 12px;
+  right: 12px;
+  transition: transform 0.6s ease-in-out;
+  animation: toast-in-right-b-wwhm3mghbz 0.7s;
+}
+
+.top-left[b-wwhm3mghbz] {
+  top: 12px;
+  left: 12px;
+  transition: transform 0.6s ease-in;
+  animation: toast-in-left-b-wwhm3mghbz 0.7s;
+}
+
+.bottom-left[b-wwhm3mghbz] {
+  bottom: 12px;
+  left: 12px;
+  transition: transform 0.6s ease-in;
+  animation: toast-in-left-b-wwhm3mghbz 0.7s;
+}
+
+.notification[b-wwhm3mghbz] {
+  background: #fff;
+  transition: 0.3s ease;
+  position: relative;
+  pointer-events: auto;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 30px;
+  margin-bottom: 15px;
+  width: 300px;
+  max-height: 100px;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 10px #999;
+  color: #000;
+  opacity: 0.9;
+  background-position: 15px;
+  background-repeat: no-repeat;
+}
+
+.notification:hover[b-wwhm3mghbz] {
+  box-shadow: 0 0 12px #fff;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.notification-title[b-wwhm3mghbz] {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 6px;
+  width: 300px;
+  height: 18px;
+}
+
+.notification-message[b-wwhm3mghbz] {
+  margin: 0;
+  text-align: left;
+  height: 18px;
+  margin-left: -1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notification-image[b-wwhm3mghbz] {
+  float: left;
+  margin-right: 15px;
+}
+
+.notification-image img[b-wwhm3mghbz] {
+  width: 30px;
+  height: 30px;
+}
+
+.toast.show[b-wwhm3mghbz] {
+  height: 50px;
+  width: 365px;
+  color: #fff;
+  padding: 20px 15px 10px 10px;
+  box-sizing: content-box;
+}
+
+.notification-container button[b-wwhm3mghbz] {
+  position: relative;
+  right: -0.3em;
+  top: -0.3em;
+  float: right;
+  font-weight: 700;
+  color: #fff;
+  outline: none;
+  border: none;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.8;
+  line-height: 1;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+@keyframes toast-in-right-b-wwhm3mghbz {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-in-left-b-wwhm3mghbz {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
